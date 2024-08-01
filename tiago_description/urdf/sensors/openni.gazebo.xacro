@@ -27,7 +27,11 @@
       <sensor type="depth" name="${name}_frame_sensor">
         <always_on>true</always_on>
         <update_rate>30.0</update_rate>
+        <visualize>true</visualize>
+        <topic>${name}/image_raw</topic>
+        <gz_frame_id>${name}_rgb_frame</gz_frame_id>
         <camera>
+          <camera_info_topic>${name}/camera_info</camera_info_topic>
           <horizontal_fov>${63.0*M_PI/180.0}</horizontal_fov>
           <image>
             <format>B8G8R8</format>
@@ -46,20 +50,20 @@
             <p2>0.00000001</p2>
           </distortion>
         </camera>
-        <plugin name="${name}_frame_controller" filename="libgazebo_ros_camera.so">
-          <camera_name>${name}</camera_name>
-          <ros>
+        <!-- <plugin name="${name}_frame_controller" filename="libgazebo_ros_camera.so"> -->
+          <!-- <camera_name>${name}</camera_name> -->
+          <!-- <ros> -->
             <!-- <namespace>${name}</namespace>-->
-            <remapping>${name}/image_raw:=${name}/rgb/image_raw</remapping>
-            <remapping>${name}/camera_info:=${name}/rgb/camera_info</remapping>
-            <remapping>${name}/depth/image_raw:=${name}/depth_registered/image_raw</remapping>
-            <remapping>${name}/depth/camera_info:=${name}/depth_registered/camera_info</remapping>
-            <remapping>${name}/points:=${name}/depth_registered/points</remapping>
-          </ros>
-          <frame_name>${name}_rgb_optical_frame</frame_name>
-          <min_depth>0.3</min_depth>
-          <max_depth>8.0</max_depth>
-        </plugin>
+            <!-- <remapping>${name}/image_raw:=${name}/rgb/image_raw</remapping> -->
+            <!-- <remapping>${name}/camera_info:=${name}/rgb/camera_info</remapping> -->
+            <!-- <remapping>${name}/depth/image_raw:=${name}/depth_registered/image_raw</remapping> -->
+            <!-- <remapping>${name}/depth/camera_info:=${name}/depth_registered/camera_info</remapping> -->
+            <!-- <remapping>${name}/points:=${name}/depth_registered/points</remapping> -->
+          <!-- </ros> -->
+          <!-- <frame_name>${name}_rgb_optical_frame</frame_name> -->
+          <!-- <min_depth>0.3</min_depth> -->
+          <!-- <max_depth>8.0</max_depth> -->
+        <!-- </plugin> -->
       </sensor>
     </gazebo>
 
