@@ -1,0 +1,8 @@
+range_sensor_broadcaster:
+  ros__parameters:
+    field_of_view: 0.52
+    frame_id: 'base_sonar_03_link'
+    max_range: 4.0
+    min_range: 0.52
+    radiation_type: 0
+    sensor_name: 'base_sonar_03'

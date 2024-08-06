@@ -102,6 +102,19 @@ def declare_actions(
     )
     launch_description.add_action(imu_sensor_broadcaster)
 
+    range_sensor_broadcaster = GroupAction(
+        [
+            generate_load_controller_launch_description(
+                controller_name='range_sensor_broadcaster',
+                controller_type='range_sensor_broadcaster/RangeSensorBroadcaster',
+                controller_params_file=os.path.join(
+                    pkg_share_folder, 'config', 'range_sensor_broadcaster.yaml'))
+
+        ],
+    )
+
+    launch_description.add_action(range_sensor_broadcaster)
+
     # Torso controller
     torso_controller = GroupAction(
         [
